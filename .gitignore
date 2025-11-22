@@ -1,0 +1,68 @@
+# ==============================
+# Archivos de Sistema
+# ==============================
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.class
+*.pyc
+
+# ==============================
+# Carpetas del IDE
+# ==============================
+.idea/
+*.iml
+.vscode/
+
+# ==============================
+# Flutter / Dart
+# ==============================
+.dart_tool/
+.pub/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+.packages
+build/
+coverage/
+
+# ==============================
+# Android
+# ==============================
+android/.gradle/
+android/app/debug
+android/app/profile
+android/app/release
+
+# Firebase (opcionales)
+android/app/google-services.json
+
+# ==============================
+# iOS
+# ==============================
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Flutter.framework
+ios/Flutter/.last_build_id
+ios/Runner/GoogleService-Info.plist
+
+# ==============================
+# Web
+# ==============================
+web/.dart_tool/
+
+# ==============================
+# Desktop (Linux, macOS, Windows)
+# ==============================
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# ==============================
+# Flutter Symbolication & Obfuscation
+# ==============================
+app.*.symbols
+app.*.map.json
