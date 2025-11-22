@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:calculator/theme/app_theme.dart';
+import 'package:calculator/widgets/responsive_config.dart';
 
 class CalculatorButton extends StatelessWidget {
   final String label;
@@ -8,7 +9,6 @@ class CalculatorButton extends StatelessWidget {
   final bool isAction;
   final bool isNumber;
   final VoidCallback? onPressed;
-  final double? scale;
 
   const CalculatorButton({
     super.key,
@@ -18,7 +18,6 @@ class CalculatorButton extends StatelessWidget {
     this.isAction = false,
     this.isNumber = false,
     this.onPressed,
-    this.scale,
   });
 
   @override
@@ -31,7 +30,7 @@ class CalculatorButton extends StatelessWidget {
         ? AppColors.actionText
         : (isOperator ? Colors.black : AppTextStyles.button.color ?? Colors.white);
 
-    final double s = (scale ?? 1.0).clamp(0.7, 1.0);
+    final double s = ResponsiveConfig.of(context).scale.clamp(0.7, 1.0);
     return SizedBox(
       height: (64 * s),
       child: ElevatedButton(
