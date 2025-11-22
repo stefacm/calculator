@@ -8,6 +8,7 @@ class CalculatorButton extends StatelessWidget {
   final bool isAction;
   final bool isNumber;
   final VoidCallback? onPressed;
+  final double? scale;
 
   const CalculatorButton({
     super.key,
@@ -17,6 +18,7 @@ class CalculatorButton extends StatelessWidget {
     this.isAction = false,
     this.isNumber = false,
     this.onPressed,
+    this.scale,
   });
 
   @override
@@ -29,18 +31,25 @@ class CalculatorButton extends StatelessWidget {
         ? AppColors.actionText
         : (isOperator ? Colors.black : AppTextStyles.button.color ?? Colors.white);
 
+    final double s = (scale ?? 1.0).clamp(0.7, 1.0);
     return SizedBox(
-      height: 64,
+      height: (64 * s),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: background,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
+            borderRadius: BorderRadius.circular(32 * s),
           ),
           elevation: 2,
         ),
-        child: Text(label, style: AppTextStyles.button.copyWith(color: textColor)),
+        child: Text(
+          label,
+          style: AppTextStyles.button.copyWith(
+            fontSize: (AppTextStyles.button.fontSize ?? 22) * s,
+            color: textColor,
+          ),
+        ),
       ),
     );
   }
