@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:calculator/widgets/styles.dart';
 
 class CalculatorButton extends StatelessWidget {
   final String label;
@@ -20,25 +21,18 @@ class CalculatorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color background;
-    Color textColor = Colors.white;
+    final Color background = isTopRow || isAction
+        ? CalcStyles.topRowBg
+        : (isOperator ? CalcStyles.operatorBg : CalcStyles.numberBg);
 
-    if (isTopRow || isAction) {
-      background = const Color(0xFF2C2C2C);
-      textColor = Colors.orangeAccent;
-    } else if (isOperator) {
-      background = Colors.orangeAccent;
-      textColor = Colors.black;
-    } else if (isNumber) {
-      background = const Color(0xFF1E1E1E);
-    } else {
-      background = const Color(0xFF2C2C2C);
-    }
+    final Color textColor = isTopRow || isAction
+        ? CalcStyles.actionText
+        : (isOperator ? Colors.black : CalcStyles.button.color ?? Colors.white);
 
     return SizedBox(
       height: 64,
       child: ElevatedButton(
-        onPressed: onPressed ?? () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: background,
           shape: RoundedRectangleBorder(
@@ -46,14 +40,7 @@ class CalculatorButton extends StatelessWidget {
           ),
           elevation: 2,
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w500,
-            color: textColor,
-          ),
-        ),
+        child: Text(label, style: CalcStyles.button.copyWith(color: textColor)),
       ),
     );
   }
