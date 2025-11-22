@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calculator/widgets/styles.dart';
+import 'package:calculator/theme/app_theme.dart';
 
 class CalculatorDisplay extends StatelessWidget {
   final String expression;
@@ -17,15 +17,15 @@ class CalculatorDisplay extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: CalcStyles.displayBg,
+        color: AppColors.displayBg,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(expression, style: CalcStyles.expression),
-          Text(result, style: CalcStyles.result),
+          Text(expression, style: AppTextStyles.expression),
+          Text(result, style: AppTextStyles.result),
         ],
       ),
     );

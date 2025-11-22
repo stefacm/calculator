@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calculator/widgets/styles.dart';
+import 'package:calculator/theme/app_theme.dart';
 
 class CalculatorButton extends StatelessWidget {
   final String label;
@@ -22,12 +22,12 @@ class CalculatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color background = isTopRow || isAction
-        ? CalcStyles.topRowBg
-        : (isOperator ? CalcStyles.operatorBg : CalcStyles.numberBg);
+        ? AppColors.topRowBg
+        : (isOperator ? AppColors.operatorBg : AppColors.numberBg);
 
     final Color textColor = isTopRow || isAction
-        ? CalcStyles.actionText
-        : (isOperator ? Colors.black : CalcStyles.button.color ?? Colors.white);
+        ? AppColors.actionText
+        : (isOperator ? Colors.black : AppTextStyles.button.color ?? Colors.white);
 
     return SizedBox(
       height: 64,
@@ -40,7 +40,7 @@ class CalculatorButton extends StatelessWidget {
           ),
           elevation: 2,
         ),
-        child: Text(label, style: CalcStyles.button.copyWith(color: textColor)),
+        child: Text(label, style: AppTextStyles.button.copyWith(color: textColor)),
       ),
     );
   }
