@@ -6,7 +6,6 @@ class CalculatorButtonRow extends StatelessWidget {
   final bool isTopRow;
   final bool isLastRow;
   final void Function(String)? onPressed;
-  final double? scale;
 
   const CalculatorButtonRow(
     this.labels, {
@@ -14,7 +13,6 @@ class CalculatorButtonRow extends StatelessWidget {
     this.isTopRow = false,
     this.isLastRow = false,
     this.onPressed,
-    this.scale,
   });
 
   @override
@@ -28,7 +26,6 @@ class CalculatorButtonRow extends StatelessWidget {
               label: labels[0],
               isNumber: true,
               onPressed: () => onPressed?.call(labels[0]),
-              scale: scale,
             ),
           ),
           const SizedBox(width: 8),
@@ -38,7 +35,6 @@ class CalculatorButtonRow extends StatelessWidget {
               label: labels[1],
               isNumber: true,
               onPressed: () => onPressed?.call(labels[1]),
-              scale: scale,
             ),
           ),
           const SizedBox(width: 8),
@@ -48,7 +44,6 @@ class CalculatorButtonRow extends StatelessWidget {
               label: labels[2],
               isAction: true,
               onPressed: () => onPressed?.call(labels[2]),
-              scale: scale,
             ),
           ),
         ],
@@ -70,7 +65,6 @@ class CalculatorButtonRow extends StatelessWidget {
               isAction: isAction,
               isNumber: !(isOperator || isAction),
               onPressed: () => onPressed?.call(text),
-              scale: scale,
             ),
           ),
         );
